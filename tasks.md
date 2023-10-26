@@ -32,8 +32,6 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 ```sql
 <!-- SELECT code FROM divisions WHERE LOWER(name) = LOWER('Bundesliga'); {D1}
 <!-- SELECT division_code, hometeam, awayteam FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
-
-
 ```
 
 5)  Find the teams which include the word "City" in their name. HINT: Not every team has been entered into the database with their full name, eg. `Norwich City` are listed as `Norwich`. If your query is correct it should return four teams.
@@ -48,6 +46,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 
 ```sql
 <!-- SELECT COUNT(DISTINCT(hometeam,awayteam)) FROM matches WHERE division_code LIKE 'F%';
+<!-- SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code IN ('F1',F2');
 
 
 ```
@@ -63,7 +62,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 8) How many draws were there in the `Eredivisie` between 2010 and 2015?
 
 ```sql
-<!-- SELECT COUNT(*) FROM matches WHERE (fthg = ftag) AND 2010<=season AND season<=2015;
+<!-- SELECT COUNT(*) FROM matches WHERE (fthg = ftag) AND season BETWEEN 2010 AND 2015 AND divison_code ='N1';
 
 
 ```
